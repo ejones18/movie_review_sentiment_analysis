@@ -1,29 +1,15 @@
 # Rotten Tomatoes Movie Reviews - Sentiment Analysis
 
-As part of the assessment for the COM3110 module, this naive bayes implementation explores the task
-of sentiment analysis on a set of movie reviews.
+A naive-bayes classifier, built from the ground up with no frameworks, for the Rotten Tomatoes movie review dataset. Includes detailed feature selection methods including TFIDF & chi-squared testing, data processing and metric evalutation.
 
-Note: This model was developed and tested in Python v3.9.12
+Note: This model was developed and tested in Python v3.9+
 
 ## Instructions before running
-In order to run the ```NB_sentiment_analyser.py``` script, a few libraries outside of the Python
-standard library[1] need installing so all the functionality can be used. These packages are as follows:
+In order to run the ```NB_sentiment_analyser.py``` script, a few libraries outside of the Python standard library[1] need installing so all the functionality can be used.
 
-* Numpy
-* Pandas
-* Seaborn
-* Matplotlib
-* nltk
-* sklearn
-* argparse
-
-These can be installed using the following command: ```pip install numpy, pandas, seaborn, matplotlib, nltk, scikit-learn, argparse```
+These can be installed using the following command: ```pip install -r "requirements.txt"```
 
 It is encouraged that these packages are installed in either a conda environment[2] or a .venv environment[3] in order to stop conflicts with pre-existing libraries.
-
-Be aware that the ```utilities.py``` and ```feature_selection.py``` modules **must** be placed in the same directory as the ```NB_sentiment_analyser.py``` script in order for them to be correctly imported.
-
-As seen on lines 25-26 in the main script i.e. ```NB_sentiment_analyser.py```, the script assumes that the training, dev and test files are in a directory below that of the script named 'moviereviews' as is the case in this repo.
 
 The following command will also need to be run in order to access the stopwords from the NLTK package: ```python -m nltk.downloader stopwords``` as seen from [4][5]
 
@@ -50,18 +36,6 @@ optional arguments:
   -apply_smoothing
 ```
 
-This helper details all of the possible arguments that the script can handle. At a glance:
-
-* training - refers to the training dataset,
-* dev - refers to the dev dataset,
-* test - refers to the test dataset,
-* classes - refers to the number of sentiment classes i.e. 3 or 5,
-* features - refers to the category of features that should be used within the classifer i.e. all_words or features,
-* feature_selection_method - refers to the method in which the features should be selection,
-* output_files - refers to whether the predictions should be saved to output files,
-* confusion_matrix - refers to whether confusion matrices should be plotted,
-* apply_smoothing - refers to whether Laplace smoothing should be applied.
-
 #### Example usage
 
 Running ```python NB_sentiment_analyser.py train.tsv dev.tsv test.tsv -classes 3 -features features -feature_selection_method manual``` will yield
@@ -81,8 +55,8 @@ As previously alluded to, the functionality of my solution is separated out into
 These modules are imported into one another to ensure streamlined functionality and in a way that doesn't break the rule r.e. circular imports. Note the previous statement r.e. where these modules need to be placed in order for them to be imported correctly.
 
 ## References
-[1] https://docs.python.org/3/library/
-[2] https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
-[3] https://docs.python.org/3/library/venv.html
-[4] https://stackoverflow.com/questions/41610543/corpora-stopwords-not-found-when-import-nltk-library
-[5] https://www.nltk.org/data.html#command-line-installation
+* [1] https://docs.python.org/3/library/
+* [2] https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+* [3] https://docs.python.org/3/library/venv.html
+* [4] https://stackoverflow.com/questions/41610543/corpora-stopwords-not-found-when-import-nltk-library
+* [5] https://www.nltk.org/data.html#command-line-installation
